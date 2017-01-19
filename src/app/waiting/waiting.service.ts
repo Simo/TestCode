@@ -1,4 +1,3 @@
-import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Rx';
 
@@ -8,7 +7,7 @@ export class WaitingService {
   counter = 0;
   updates = new Subject<boolean>();
 
-  constructor(private http: Http) { }
+  constructor() { }
 
   show() {
     this.counter++;

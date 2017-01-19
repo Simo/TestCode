@@ -2,7 +2,7 @@ import { NwhttpService } from './nwhttp.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ConnectionBackend, HttpModule, RequestOptions, XHRBackend } from '@angular/http';
+import { ConnectionBackend, Http, HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -53,7 +53,8 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
     TestModule
   ],
   providers: [ CustomerService,
-                WaitingService],
+                WaitingService,
+               {provide: Http, useFactory: httpFactory, deps: [XHRBackend, RequestOptions, WaitingService] }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
