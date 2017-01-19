@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>ID REACTIVE</th>
+    <th>NAME</th>
+  </tr>
+  <tr *ngFor="let c of customers">
+    <td><a (click)="showCustomer(c.customerId)">{{c.customerId}}</a></td>
+    <td><a (click)="showCustomerReact(c.customerId)">{{c.customerId}}</a></td>
+    <td>{{c.companyName}}</td>
+  </tr>
+</table>
+<div><a routerLink="/about">about</a></div>
+<button (click)="goToAbout()" >vai a about</button>

@@ -1,0 +1,28 @@
+<div *ngIf="!loading">
+  <form novalidate #form="ngForm" (submit)="saveCustomer()">
+    <p>
+      <input type="text" name="customerId" [(ngModel)]="customer.customerId" required #customerid="ngModel">
+      <span *ngIf="customerid.hasError('required')">obbligatorio</span>
+    </p>
+    <p>
+      <input type="text" name="companyName" [(ngModel)]="customer.companyName" required FirstLetterValidator="a" #companyName="ngModel">
+      <span *ngIf="companyName.hasError('required')">obbligatorio</span>
+      <span *ngIf="companyName.hasError('firstlettervalidator')">non comincia per A</span>
+    </p>
+    <p>
+      <input type="text" name="address" [(ngModel)]="customer.address" required #address="ngModel">
+      <span *ngIf="address.hasError('required')">obbligatorio</span>
+    </p>
+    <p>
+      <input type="text" name="city" [(ngModel)]="customer.city" required #city="ngModel">
+      <span *ngIf="city.hasError('required')">obbligatorio</span>
+    </p>
+    <button type="submit">Salva</button>
+  </form>
+  <div>
+      <button routerLink="/home">Indietro</button>
+    </div>
+</div>
+<div *ngIf="loading">
+  <img src="infinity.gif" >
+</div>
