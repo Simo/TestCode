@@ -11,6 +11,8 @@ export class PagerComponent implements OnInit {
   @Input() pageIndex: number = 1;
   @Output() OnPageChanged = new EventEmitter<number>();
 
+  pageSize = 10;
+
   constructor() { }
 
   ngOnInit() {

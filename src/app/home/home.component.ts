@@ -20,10 +20,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private service: CustomerService ) { }
 
   ngOnInit() {
-    //chiamata con Promise
-    //this.service.getCustomers().then();
+    // chiamata con Promise
+    // this.service.getCustomers().then();
     // chiamata con RXJS
-    this.subscription = this.service.customers.subscribe(c => { this.customers = c });
+    this.subscription = this.service.customers.subscribe(c => { this.customers = c; });
     this.service.getCustomersReact();
   }
 
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  goToAbout(){
+  goToAbout() {
     this.router.navigateByUrl('/about');
   }
 
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/customerdetailreact/' + id );
   }
 
-  OnPageChanged(pageIndex: number){
+  onPageChanged(pageIndex: number) {
     alert(pageIndex);
   }
 }

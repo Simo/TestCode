@@ -19,6 +19,7 @@ import { FirstLetterLowerCasePipe } from './first-letter-lower-case.pipe';
 import { WaitingComponent } from './waiting/waiting.component';
 import { WaitingService } from './waiting/waiting.service';
 import { PagerComponent } from './pager/pager.component';
+import { NumberToArrayPipe } from './number-to-array.pipe';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -42,7 +43,8 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
     ConsumerDetailReactiveComponent,
     FirstLetterLowerCasePipe,
     WaitingComponent,
-    PagerComponent
+    PagerComponent,
+    NumberToArrayPipe
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,7 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
     TestModule
   ],
   providers: [ CustomerService,
-                WaitingService,
+               WaitingService,
                {provide: Http, useFactory: httpFactory, deps: [XHRBackend, RequestOptions, WaitingService] }],
   bootstrap: [AppComponent]
 })
