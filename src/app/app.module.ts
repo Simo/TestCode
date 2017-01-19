@@ -1,7 +1,8 @@
+import { NwhttpService } from './nwhttp.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { ConnectionBackend, HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -15,6 +16,9 @@ import { CustomerDetailComponent } from './customer-detail/customer-detail.compo
 import { FirstLetterValidatorDirective } from './first-letter-validator.directive';
 import { ConsumerDetailReactiveComponent } from './consumer-detail-reactive/consumer-detail-reactive.component';
 import { FirstLetterLowerCasePipe } from './first-letter-lower-case.pipe';
+import { WaitingComponent } from './waiting/waiting.component';
+import { WaitingService } from './waiting/waiting.service';
+import { PagerComponent } from './pager/pager.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -24,6 +28,10 @@ const routes: Routes = [
   { path: 'customerdetailreact/:id', component: ConsumerDetailReactiveComponent }
   ];
 
+export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestOptions, waitingService: WaitingService) {
+  return new NwhttpService(backend, defaultOptions, waitingService);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +40,9 @@ const routes: Routes = [
     CustomerDetailComponent,
     FirstLetterValidatorDirective,
     ConsumerDetailReactiveComponent,
-    FirstLetterLowerCasePipe
+    FirstLetterLowerCasePipe,
+    WaitingComponent,
+    PagerComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +52,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     TestModule
   ],
-  providers: [ CustomerService ],
+  providers: [ CustomerService,
+                WaitingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

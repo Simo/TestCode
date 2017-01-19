@@ -40,6 +40,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   showCustomerReact(id: string) {
+    this.service.getCustomerReact(id);
     this.router.navigateByUrl('/customerdetailreact/' + id );
+  }
+
+  OnPageChanged(pageIndex: number){
+    alert(pageIndex);
   }
 }

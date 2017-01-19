@@ -10,5 +10,6 @@
     <td>{{c.companyName}}</td>
   </tr>
 </table>
+<app-pager totalCount="91" pageIndex="1" (OnPageChanged)="OnPageChanged($event)" ></app-pager>
 <div><a routerLink="/about">about</a></div>
 <button (click)="goToAbout()" >vai a about</button>

@@ -27,11 +27,16 @@ export class ConsumerDetailReactiveComponent implements OnInit {
 
   onSubmit(form: FormGroup) {
     this.customer.customerId = this.form.controls['customerId'].value;
+    this.customer.companyName = this.form.controls['companyName'].value;
+    this.customer.address = this.form.controls['address'].value;
+    this.customer.city = this.form.controls['city'].value;
+    this.customer.country = this.form.controls['country'].value;
     this.service.saveCustomer(this.customer);
   }
 
   private loadForm() {
     this.form = this.fb.group({
+      // dichiariamo proprietà: [valore iniziale, [Validatori]]
       customerId: [this.customer.customerId, Validators.required],
       companyName: [this.customer.companyName, Validators.required],
       address: [this.customer.address, Validators.required],

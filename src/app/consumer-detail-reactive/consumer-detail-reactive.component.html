@@ -1,4 +1,13 @@
 <form [formGroup]="form" (submit)="onSubmit(form)" >
   <input type="text" formControlName="customerId" />
   <span *ngIf="form.controls['customerId'].touched && form.controls['customerId'].hasErrors('required')">obbligatorio</span>
+  <input type="text" formControlName="companyName" />
+  <span *ngIf="form.controls['companyName'].touched && form.controls['companyName'].hasErrors('required')">obbligatorio</span>
+  <input type="text" formControlName="address" />
+  <span *ngIf="form.controls['address'].touched && form.controls['address'].hasErrors('required')">obbligatorio</span>
+  <input type="text" formControlName="city" />
+  <span *ngIf="form.controls['city'].touched && form.controls['city'].hasErrors('required')">obbligatorio</span>
+  <input type="text" formControlName="country" />
+  <span *ngIf="form.controls['country'].touched && form.controls['country'].hasErrors('required')">obbligatorio</span>
+  <button type="button">Salva</button>
 </form>
