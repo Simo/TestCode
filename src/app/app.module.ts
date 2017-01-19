@@ -20,6 +20,7 @@ import { WaitingComponent } from './waiting/waiting.component';
 import { WaitingService } from './waiting/waiting.service';
 import { PagerComponent } from './pager/pager.component';
 import { NumberToArrayPipe } from './number-to-array.pipe';
+import { ModalComponent } from './modal/modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -44,7 +45,8 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
     FirstLetterLowerCasePipe,
     WaitingComponent,
     PagerComponent,
-    NumberToArrayPipe
+    NumberToArrayPipe,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

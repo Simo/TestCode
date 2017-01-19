@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 
 import { CustomerService } from '../customer.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private service: CustomerService ) { }
 
   ngOnInit() {
+    console.log($);
     // chiamata con Promise
     // this.service.getCustomers().then();
     // chiamata con RXJS

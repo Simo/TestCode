@@ -1,0 +1,22 @@
+<div class="modal" tabindex="-1" role="dialog" #modal>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="hide()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{title}}</h4>
+      </div>
+      <div class="modal-body">
+        {{body}}
+      </div>
+      <div class="modal-footer">
+        <span *ngIf="modalType == modalTypeEnum.Confirmation">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="confirm()">Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="hide()">No</button>
+        </span>
+        <span *ngIf="modalType == modalTypeEnum.Information">
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="hide()">Ok</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
